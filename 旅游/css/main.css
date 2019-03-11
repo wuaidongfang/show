@@ -1,0 +1,159 @@
+/*第1单元 项目1-2  旅游网站页面 main.css*/
+.qui-page {
+	width: 640px;
+}
+.qui-header {
+	width: 100%;
+	height: 80px;
+	overflow: hidden;  /*隐藏溢出内容*/
+	background-color: #2bab79;  /*背景颜色为#2bab79*/
+}
+.container {
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.plcRouteList {
+	border-bottom: 1px solid #e6e8ea;  /*底部边框为1px 颜色是#e6e8ea的实线 */
+	background-color: #fff;
+	padding-left: 5px;  /*左内边距为5px*/
+}
+.plcRouteList li {
+	padding: 15px 5px 15px 0;  /*上、右、下、左内边距分别为15px、5px、15px、0*/
+	border-top: 1px solid #e6e8ea;  /*顶部边框为1px 颜色是#e6e8ea的实线 */
+}
+.plcRouteList a {
+	display: block;  /*把a由行元素变为块元素*/
+	position: relative;
+}
+.plcRouteList .pic {
+	display: block;
+	min-height: 150px;
+}
+.plcRouteList .bottom {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 50px;
+	padding: 30px 0 0 60px;
+	color: #fff;
+	background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.6));
+	background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.6));  /*背景颜色：线性渐变，从上到下由黑色渐变至透明度为60%的黑色*/
+}
+.plcRouteList .bottom .face {
+	float: left;  /*向左浮动*/
+	margin-left: -50px;
+	width: 38px;
+	height: 38px;
+	border: 1px solid #fff;
+	border-radius: 50%;  /*为元素添加圆角边框，边框半径为宽度的50%*/
+	overflow: hidden;
+}
+.plcRouteList .bottom .face img {
+	display: block;
+	border-radius: 50%;
+}
+.plcRouteList .bottom　.title {
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;/*表示当对象内文本溢出时显示省略标记（...）。*/
+	white-space: nowrap;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 22px;  /*行高为22px*/
+}
+.plcRouteList .day {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 50px;
+	height: 50px;
+	background-color: rgba(43,171,121,0.8);/*背景颜色：rgb对应的是颜色值，a对应的是透明度*/
+	border-radius: 50%;
+	text-align: center;
+	font-size: 18px;
+	line-height: 50px;
+	color: #fff;
+}
+.plcRouteList .infos {
+	margin-top: 7px;  /*顶部外边距为7px*/
+}
+.plcRouteList .infos>div {
+	margin-bottom: 5px;  /*底部外边距为5px*/
+	padding-left: 40px;  /*左边内边距为40px*/
+}
+.plcRouteList .infos em {
+	float: left;
+	margin-left: -40px;
+	font-size: 15px;
+	font-weight: bold;
+}
+.plcRouteList .infos p {
+	max-height: 48px;
+	overflow: hidden;
+}
+.qui-footerBasic {
+	width: 100%;
+	margin: 20px 0;  /*上下外边距为20px，左右外边距为0*/
+	text-align: center;
+	font-size: 10px;
+	line-height: 20px;
+}
+.qui-footerBasic .switchStyle {
+	color: #9ea3ab;
+}
+.qui-footerBasic .switchStyle span {
+	margin-left: 30px;
+
+}
+.qui-footerBasic .switchStyle a {
+	color: #444;  /*字体颜色为#444*/
+	text-decoration: none;  /*清除文本样式*/
+}
+.qui-asides {
+	position: absolute;
+	left: -200px;
+	top: 0;
+	height: 400px;
+	width: 200px;
+}
+.qui-aside {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	width: 200px;
+	overflow-y: scroll;  /*垂直方向内容溢出则出现滚动条*/
+	background-color: #2d3741;
+}
+.qui-asideNav {
+	padding: 80px 10px 10px; /*上内边距为80px,左右内边距都为10px，下内边距为10px*/
+}
+.qui-asideNav li {
+	border-top: 1px solid #232d34;
+	background-color: #36424b;
+}
+.qui-asideNav a {
+	text-decoration: none;
+	display: block;
+	padding-left: 15px;
+	font-size: 16px;
+	line-height: 44px;
+	color: #ced1d5;
+}
+.qui-asideNav a:hover {
+	color: white;
+	background-color: #2bab79;
+}
+
+
+
+
+
+
+
+
+
+
+

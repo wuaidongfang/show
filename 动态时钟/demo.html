@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #time1 {
+      color: #4e4e4e;
+    }
+  </style>
+  <title>Title</title>
+
+</head>
+
+<body>
+
+  <p id="time1"></p>
+  <p id="time2"></p>
+  <script>
+    function clock() {
+      var time1 = document.getElementById("time1");
+      var time2 = document.getElementById("time2");
+      var sDay = new Array("日", "一", "二", "三", "四", "五", "六");//声明数组存储一周七天
+      var myDate = new Date();
+
+      var year = myDate.getFullYear();  //  年
+      var month = myDate.getMonth() + 1;  // 月
+      var date = myDate.getDate();  //日
+      var day = sDay[myDate.getDay()];  //根据得到的数字星期，利用数组转换成汉字星期
+      var hour = myDate.getHours(); //小时
+      var min = myDate.getMinutes();  //分
+      var s = myDate.getSeconds();  //秒
+
+      h = formatTwoDigits(hour);//格式化小时，如果不足两位前补0
+      m = formatTwoDigits(min);
+      s = formatTwoDigits(s);
+
+      time1.innerHTML = year + "年" + month + "月" + date + "日" + "星期" + day;
+      time2.innerHTML = imageDigits(h) + "<img src='images/dot.png'>" + imageDigits(m) + "<img src='images/dot.png'>" + imageDigits(s);
+
+      setTimeout("clock()", 1000);
+    }
+    window.onload = clock();  //页面的加载事件执行时，调用函数
+
+    //如果输入数是1位数，在十位数上补0
+    function formatTwoDigits(s) {
+      if (s < 10) {
+        return "0" + s;
+      }
+      else return s;
+    }
+
+    //  将数转换为图像，注意，在本文件的相同目录下已有0－9的图像文件，文件名为0.png,1.png …… 以此类推
+    function imageDigits(str) {
+      var ret = "";
+      var str = new String(str);
+      for (var i = 0; i < str.length; i++) {
+        ret += '<img src="images/' + str.charAt(i) + '.png">';
+      }
+      return ret;
+    }
+  </script>
+</body>
+
+</html>

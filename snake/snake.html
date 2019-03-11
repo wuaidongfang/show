@@ -1,0 +1,142 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body onkeydown="keyDown(event)">
+<canvas height="600" width="800" id="canvas" style="background:#000">不支持</canvas>
+<span>得分:</span><span id="count">0</span>
+<script>
+	var count=document.getElementById("count");
+	var canvas=document.getElementById("canvas");
+	var cxt=canvas.getContext("2d");
+	//用2个一维数组存放蛇的初始矩阵点
+	var sx=[1,1,1,1];
+	var sy=[10,9,8,7];
+	var i=0;
+	//存放真正的坐标点
+	var x=0,y=0;
+	//蛇的长度变量
+	var len=4;
+	//蛇头的下一个点阵位置
+	var nextX=1,nextY=10;
+	//方向值
+	var fx=39;//缺省往右移动 左37右39上38下40
+	//随机食物的初始状态：foodX,foodY,布尔值（是否有食物）
+	var foodX=0,foodY=0,flag=0;
+	//死亡变量
+	var crash=0;
+	var time=0;
+	
+	//产生随机食物的点阵坐标
+	function getFood(){
+		if(flag==0){
+			foodX=Math.floor(Math.random()*40);
+			foodY=Math.floor(Math.random()*30);
+			flag=1;
+		}
+	}
+	function draw(){
+		//清空画布
+		cxt.clearRect(0,0,800,600);
+		//绘制蛇
+			//设置样式
+			cxt.fillStyle="#F00";
+			for(i=0;i<len;i++){
+				x=sx[i]*20;
+				y=sy[i]*20;
+				cxt.fillRect(x,y,20,20);
+			}
+		//绘制随机食物
+		cxt.fillStyle="#0F0";
+		if(flag==1){
+			x=foodX*20;
+			y=foodY*20;
+			cxt.fillRect(x,y,20,20);
+		}
+	}
+	//吃食物
+	function eat(){
+		len++;
+		count.innerHTML=len-4;
+		move();
+		flag=0;
+	}
+	//是吃了还没吃：吃了后移动，还是直接移动
+	function eatormove(){
+		if((flag==1)&&(sx[0]==foodX)&&(sy[0]==foodY)){
+			eat();
+		}
+		else move();
+	}
+	//蛇的下一个位置
+	function next(){
+		//蛇身
+		for(i=len-1;i>0;i--){
+			sx[i]=sx[i-1];
+			sy[i]=sy[i-1];
+		}
+		//蛇头
+		sx[0]=nextX;
+		sy[0]=nextY;
+	}
+	//向左移
+	function sleft(){
+		if(sx[0]>0)nextX=sx[0]-1;
+		else gameover();
+	}
+	//向右移
+	function sright(){
+		if(sx[0]<40)nextX=sx[0]+1;
+		else gameover();
+	}
+	//向上移
+	function sup1(){
+		if(sy[0]>0)nextY=sy[0]-1;
+		else gameover();
+	}
+	//向下移
+	function sdown(){
+		if(sy[0]<30)nextY=sy[0]+1;
+		else gameover();
+	}
+	//移动
+	function move(){
+		if(fx==37)sleft();
+		else if(fx==38)sup1();
+		else if(fx==39)sright();
+		else if(fx==40)sdown();
+	}
+	//按键传递
+	function keyDown(kd){
+		if(kd.keyCode<37||kd.keyCode>40)fx=fx;
+		else  if(Math.abs((fx-kd.keyCode))!=2)fx=kd.keyCode;
+	}
+	//结束界面
+	function gameover(){
+		cxt.font="40px 黑体";
+		cxt.fillStyle="#FFF";
+		cxt.fillText("Game over!",300,280);
+	}
+	function refresh1(){
+		time++;
+		//判断是否死亡
+		for(i=1;i<len;i++){
+			if((sx[0]==sx[i])&&(sy[0]==sy[i])){
+				crash=1;gameover();break;
+			}
+		}
+		if(time%2==0&&crash==0){
+			
+			eatormove();
+			getFood();
+			draw();
+			next();
+		}
+	}
+	setInterval(refresh1,200);
+</script>
+</body>
+</html>

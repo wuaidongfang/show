@@ -1,0 +1,43 @@
+﻿/*第1单元 项目1-2  旅游网站页面 common.css*/
+html {
+	height: 100%;
+	overflow-x: hidden; /*表示水平方向隐藏溢出，没有滚动条*/
+	background: #f5f5f5;
+	color: #444;
+	font: 14px/24px Helvetica !important; /*字体样式为：字号大小14px 行高24px 字体为Helvetica，
+	                                        !important设置该元素的样式具有最高权值*/
+}
+body {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box; /*为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。*/
+	position: relative;
+	z-index: 0;
+	width: 100%;
+	max-width: 640px;
+	min-height: 100%;
+	margin: 0 auto; /*页面水平居中*/
+	overflow-x: hidden;
+	box-shadow: 0 0 10px rgba(0,0,0,0.3); /*盒子阴影：水平偏移，垂直偏移模糊值 ,阴影颜色（其中rgb指颜色，a指透明度*/
+}
+div,ul,li,p {
+	margin: 0;
+	padding: 0;
+	outline: none; /*当元素获得焦点的时候，焦点框为0，不出现虚线框（或高亮框）*/
+}
+em,strong {
+	font-style: normal; /*字体样式正常*/
+	font-weight: normal; /*字体粗细正常*/
+}
+ul {
+	list-style: none; /*清除默认样式*/
+}
+h1 {
+	font-size: 55px; /*字体大小55px*/
+	margin-top: 30px; /*上边距30px*/
+	color: white; /*字体颜色为白色*/
+	text-align: center;/*文字水平居中*/
+}
+
+
+
