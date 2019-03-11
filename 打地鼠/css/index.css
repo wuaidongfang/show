@@ -1,0 +1,103 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.container{
+    width: 320px;
+    height: 480px;
+    background: url("../images/game_bg.jpg") no-repeat 0 0;
+    margin: 50px auto;
+    position: relative;
+}
+.container>h1{
+    color: white;
+    margin-left: 60px;
+}
+.container>.progress{
+    width: 180px;
+    height: 16px;
+    background: url("../images/progress.png") no-repeat 0 0;
+    position: absolute;
+    left: 63px;
+    top: 66px;
+}
+.container>.start{
+    width: 150px;
+    /*高度加不加其实都行，因为有行高了嘛，把高度就给撑起来了*/
+    height: 35px;
+    line-height: 35px;
+    /*这句就算不加文字也是居中的,因为是在按钮里*/
+    text-align: center;
+    background: linear-gradient(#E55C3D,#C50000);
+    border: none;
+    color: white;
+    font-size: 20px;
+    border-radius: 20px;
+    position: absolute;
+    top: 320px;
+    /*绝对定位的元素left设为50%时，是已左上角为原点的，所以只要再使用margin属性添加负值补偿回来即可。便可左右居中*/
+    left: 50%;
+    margin-left: -75px;
+}
+.container>.rules{
+    width: 100%;
+    height: 20px;
+    background: #ccc;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /*这个就必须得加上了，div可不像按钮有有自动居中的效果*/
+    text-align: center;
+}
+.container>.rule{
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    /*由于container这个div里刚开始有个计分的h1，它是块元素，所以会站位，所以要绝对定位调这个蒙版的位置*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-top: 100px;
+    box-sizing: border-box;
+    text-align: center;
+    display: none;
+}
+.rule>p{
+    line-height: 50px;
+    color: white;
+}
+.rule>a{
+    color: red;
+}
+.container>.mask{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding-top: 200px;
+    box-sizing: border-box;
+    text-align: center;
+    display: none;
+}
+.mask>h1{
+    color: #f84f03;
+    /*字体阴影，前两个参数是x，y轴偏移距离，第三个是模糊程度，0代表无模糊，第四个代表字体阴影的颜色*/
+    text-shadow: 3px 3px 0 white;
+}
+.mask>.reStart{
+    width: 150px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 20px;
+    border: none;
+    position: absolute;
+    top: 320px;
+    left: 50%;
+    margin-left: -75px;
+    color: white;
+    background: linear-gradient(#74ACCF,#007DDC);
+}
