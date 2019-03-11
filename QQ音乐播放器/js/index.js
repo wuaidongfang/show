@@ -12,7 +12,7 @@ $(function () {
     getPlayerList();
     function getPlayerList() {
         $.ajax({
-            url: "show/QQ音乐播放器/source/musiclist.json",
+            url: "/QQ音乐播放器/source/musiclist.json",
             dataType: "json",
             success: function (data) {
                 player.musicList = data;
